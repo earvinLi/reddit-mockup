@@ -17,3 +17,21 @@ export const getAppHeaderStyles = (theme) => ({
     backgroundColor: 'white',
   },
 });
+
+export const getPostListItemStyles = (theme) => ({
+  iconStyle: {
+    color: 'grey',
+  },
+  listItemAvatarStyle: {
+    alignItems: 'center',
+    display: 'flex',
+    flexDirection: 'column',
+    marginRight: theme.spacing(1),
+  },
+  listItemSecondaryActionStyle: {
+    display: 'flex',
+  },
+  postScoreStyle: {
+    color: 'grey',
+  },
+});
