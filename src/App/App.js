@@ -1,10 +1,15 @@
 // External Dependencies
 import React from 'react';
 
+// Internal Dependencies
+import AppHeader from '../AppHeader/AppHeader';
+
 // Component Definition
 const App = () => {
   return (
-    <div>Init Project</div>
+    <>
+      <AppHeader />
+    </>
   );
 };
 
