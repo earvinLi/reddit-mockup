@@ -1,3 +1,9 @@
+export const getAppStyles = () => ({
+  rootStyle: {
+    display: 'flex',
+  },
+});
+
 export const getAppHeaderStyles = (theme) => ({
   buttonStyle: {
     color: 'black',
@@ -18,6 +24,13 @@ export const getAppHeaderStyles = (theme) => ({
   },
 });
 
+export const getPostListStyles = (theme) => ({
+  rootStyle: {
+    flex: 3,
+    margin: `${theme.spacing(2)}px ${theme.spacing(1)}px`,
+  },
+});
+
 export const getPostListItemStyles = (theme) => ({
   iconStyle: {
     color: 'grey',
@@ -33,5 +46,16 @@ export const getPostListItemStyles = (theme) => ({
   },
   postScoreStyle: {
     color: 'grey',
+  },
+});
+
+export const getSidebarStyles = (theme) => ({
+  buttonStyle: {
+    width: '100%',
+  },
+  rootStyle: {
+    flex: 1,
+    margin: `${theme.spacing(2)}px ${theme.spacing(1)}px`,
+    padding: theme.spacing(2),
   },
 });

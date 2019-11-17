@@ -5,13 +5,22 @@ import { connect } from 'react-redux';
 // Material-UI Dependencies
 import List from '@material-ui/core/List';
 import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core/styles';
 
 // Internal Dependencies
 import PostListItem from './PostListItem';
 import { fetchPosts } from './action/PostListAction';
+import { getPostListStyles } from '../App/Styles';
+
+// Local Variables
+const useStyles = makeStyles((theme) => getPostListStyles(theme));
 
 // Component Definition
 const PostList = (props) => {
+  const {
+    rootStyle,
+  } = useStyles();
+
   const {
     fetchedPosts,
     onFetchPosts,
@@ -20,7 +29,7 @@ const PostList = (props) => {
   useEffect(() => {
     onFetchPosts();
     // TODO: Use one single state to handle update monitoring
-  }, [ onFetchPosts ]);
+  }, [onFetchPosts]);
 
   const renderPostItems = () => fetchedPosts.map((post, index) => {
     const {
@@ -51,7 +60,7 @@ const PostList = (props) => {
 
   return (
     <>
-      <Paper>
+      <Paper className={rootStyle}>
         <List>
           {renderPostItems()}
         </List>
