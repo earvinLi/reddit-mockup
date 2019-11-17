@@ -1,4 +1,5 @@
 // External Dependencies
+import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
@@ -67,6 +68,23 @@ const PostList = (props) => {
       </Paper>
     </>
   );
+};
+
+// Prop Validation
+PostList.propTypes = {
+  fetchedPosts: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    owner: PropTypes.string,
+    score: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    timestamp: PropTypes.number.isRequired,
+  })),
+  onFetchPosts: PropTypes.func.isRequired,
+};
+
+// Default Props
+PostList.defaultProps = {
+  fetchedPosts: [],
 };
 
 const mapStateToProps = (state) => {
