@@ -46,7 +46,7 @@ const PostList = (props) => {
       timeStyle: 'medium',
     });
     const timeOwnerText = `submitted on ${timeText} by ${owner || 'Anonymous'}`;
-    const scoreText = score < 1000 ? score : `${score / 1000}k`;
+    const scoreText = score < 1000 ? `${score}` : `${score / 1000}k`;
 
     return (
       <PostListItem

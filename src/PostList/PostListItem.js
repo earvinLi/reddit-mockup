@@ -91,7 +91,7 @@ PostListItem.propTypes = {
   hasDivider: PropTypes.bool,
   id: PropTypes.number.isRequired,
   onDeletePost: PropTypes.func.isRequired,
-  postScore: PropTypes.number.isRequired,
+  postScore: PropTypes.string.isRequired,
   primaryText: PropTypes.string.isRequired,
   secondaryText: PropTypes.string.isRequired,
 };
