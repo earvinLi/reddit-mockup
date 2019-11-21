@@ -25,12 +25,13 @@ const PostList = (props) => {
   const {
     fetchedPosts,
     onFetchPosts,
+    votedPost,
   } = props;
 
   useEffect(() => {
     onFetchPosts();
     // TODO: Use one single state to handle update monitoring
-  }, [onFetchPosts]);
+  }, [onFetchPosts, votedPost]);
 
   const renderPostItems = () => fetchedPosts.map((post, index) => {
     const {
@@ -81,20 +82,31 @@ PostList.propTypes = {
     timestamp: PropTypes.number.isRequired,
   })),
   onFetchPosts: PropTypes.func.isRequired,
+  votedPost: PropTypes.shape({
+    id: PropTypes.number,
+    owner: PropTypes.string,
+    score: PropTypes.number,
+    title: PropTypes.string,
+    timestamp: PropTypes.number,
+  }),
 };
 
 // Default Props
 PostList.defaultProps = {
   fetchedPosts: [],
+  votedPost: {},
 };
 
 const mapStateToProps = (state) => {
   const {
     fetchedPosts,
+    votedPost,
   } = state.PostList;
+  console.log(votedPost);
 
   return {
     fetchedPosts,
+    votedPost,
   };
 };
 

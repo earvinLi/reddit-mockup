@@ -17,7 +17,10 @@ import { makeStyles } from '@material-ui/core/styles';
 
 // Internal Dependencies
 import TooltippedIconButton from '../SharedUnits/TooltippedIconButton';
-import { deletePost } from './action/PostListAction';
+import {
+  deletePost,
+  votePost,
+} from './action/PostListAction';
 import { getPostListItemStyles } from '../App/Styles';
 
 // Local Variables
@@ -35,6 +38,7 @@ const PostListItem = (props) => {
     hasDivider,
     id,
     onDeletePost,
+    onVotePost,
     postScore,
     primaryText,
     secondaryText,
@@ -47,6 +51,7 @@ const PostListItem = (props) => {
           <>
             <ArrowDropUpIcon
               className={iconStyle}
+              onClick={() => onVotePost(id, 'upvote')}
             />
             <Typography
               className={postScoreStyle}
@@ -56,6 +61,7 @@ const PostListItem = (props) => {
             </Typography>
             <ArrowDropDownIcon
               className={iconStyle}
+              onClick={() => onVotePost(id, 'downvote')}
             />
           </>
         </ListItemAvatar>
@@ -91,6 +97,7 @@ PostListItem.propTypes = {
   hasDivider: PropTypes.bool,
   id: PropTypes.number.isRequired,
   onDeletePost: PropTypes.func.isRequired,
+  onVotePost: PropTypes.func.isRequired,
   postScore: PropTypes.string.isRequired,
   primaryText: PropTypes.string.isRequired,
   secondaryText: PropTypes.string.isRequired,
@@ -103,4 +110,5 @@ PostListItem.defaultProps = {
 
 export default connect(null, {
   onDeletePost: deletePost,
+  onVotePost: votePost,
 })(PostListItem);
