@@ -3,10 +3,20 @@ import { fetchRequest } from '../../App/RootUtilities';
 import {
   DELETE_POST,
   FETCH_POSTS,
+  POST_POST,
   VOTE_POST,
 } from '../../App/ActionTypes';
 
-// TODO: Create helper functions to simplify the following fetches
+export const postPost = (post) => async (dispatch) => {
+  const postedPost = await fetchRequest('http://localhost:8081/posts', {
+    body: JSON.stringify(post),
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+  });
+
+  dispatch({ type: POST_POST, postedPost });
+};
+
 export const deletePost = (postId) => async (dispatch) => {
   const deletedPost = await fetchRequest(`http://localhost:8081/posts/${postId}`, {
     method: 'DELETE',

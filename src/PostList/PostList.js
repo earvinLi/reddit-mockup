@@ -102,7 +102,6 @@ const mapStateToProps = (state) => {
     fetchedPosts,
     votedPost,
   } = state.PostList;
-  console.log(votedPost);
 
   return {
     fetchedPosts,
